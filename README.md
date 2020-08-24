@@ -5,7 +5,7 @@ This is a step by step guide how to up and run this  application using spring bo
 
 ### Running the Application
 
-*  Required softwares : java 8, node 10.12.0,angular cli 6.2.5
+*  Required softwares : Java 8, Gradle 4.6 , Node 10.12.0, Angular cli 6.2.5
 
 * Clone project from github
 

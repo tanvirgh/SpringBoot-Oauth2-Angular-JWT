@@ -30,6 +30,10 @@ $ ./gradlew bootRun
 ```
 * go to web-client directory under project root. 
 
+sample  : Tanvirs-Mac-mini:~ tanvir$ cd /Users/tanvir/cmed-assignment/web-client/
+           Tanvirs-Mac-mini:web-client tanvir$ ng serve
+
+
 ```
  $ npm install 
  $ ng serve

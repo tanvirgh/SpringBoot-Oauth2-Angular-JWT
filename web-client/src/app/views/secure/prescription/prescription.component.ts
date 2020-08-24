@@ -1,8 +1,11 @@
+import { HttpResponse } from "@angular/common/http";
 import { Component, OnInit } from '@angular/core';
-import {PrescriptionService} from "../../../service/prescription/prescription.service";
-import {Prescription} from "../../../model/prescription.model";
-import {HttpResponse} from "@angular/common/http";
-import {PrescriptionFilter} from "../../../model/prescription.filter";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { PrescriptionFilter } from "../../../model/prescription.filter";
+import { Prescription } from "../../../model/prescription.model";
+import { PrescriptionService } from "../../../service/prescription/prescription.service";
+import { PrescriptionDetailComponent } from './prescription-detail/prescription-detail.component';
 
 @Component({
   selector: 'app-prescription',
@@ -17,7 +20,7 @@ export class PrescriptionComponent implements OnInit {
   filter = new PrescriptionFilter();
   feedback: any = {};
 
-  constructor(private prescriptionService : PrescriptionService) { }
+  constructor(private prescriptionService : PrescriptionService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getPrescriptionList();
@@ -52,5 +55,52 @@ export class PrescriptionComponent implements OnInit {
     }
   }
 
+  createPrescriptionForm(prescription?: Prescription):FormGroup {
+    const tmpPrescription = prescription ? prescription: new Prescription();
+    const prescriptionform = new FormGroup({
+      id: new FormControl(tmpPrescription.id),
+      patientName:new FormControl(tmpPrescription.patientName , [Validators.required , Validators.minLength(5) ] ),
+      age:new FormControl(tmpPrescription.age,[Validators.required,Validators.email]),
+      gender:new FormControl(tmpPrescription.gender,[Validators.required,Validators.email])
+    });
+    return prescriptionform;
+  }
 
+  editPrescription(prescription: Prescription) {
+    
+    const prescriptionForm = this.createPrescriptionForm(prescription);
+
+    const dialogRef = this.dialog.open(PrescriptionDetailComponent, {
+      width: '250px',
+      data: prescriptionForm
+    });
+
+    dialogRef.afterClosed().subscribe(editedPrescription => {
+      console.log(editedPrescription);
+      if(editedPrescription) {
+        this.prescriptionService.updatePrescription(editedPrescription).subscribe(prescriptionData => {
+          console.log('prescripted edited data arrived ', prescriptionData)
+        });
+      }
+    });
+
+  }
+
+  addPrescription() {
+    const prescriptionForm = this.createPrescriptionForm();
+
+    const dialogRef = this.dialog.open(PrescriptionDetailComponent, {
+      width: '250px',
+      data: prescriptionForm
+    });
+
+    dialogRef.afterClosed().subscribe(newPrescription => {
+      console.log(newPrescription);
+      if(newPrescription) {
+        this.prescriptionService.createPrescription(newPrescription).subscribe(prescriptionData => {
+          console.log('prescripted edited data arrived ', prescriptionData)
+        });
+      }
+    });
+  }
 }

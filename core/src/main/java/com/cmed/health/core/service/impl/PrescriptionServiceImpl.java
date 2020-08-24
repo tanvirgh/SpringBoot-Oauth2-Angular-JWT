@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -41,7 +42,17 @@ public class PrescriptionServiceImpl<S extends PrescriptionDto> implements Presc
 
     @Override
     public Optional<Prescription> findById(Long id) {
-        return Optional.empty();
+        return prescriptionRepository.findById(id);
+    }
+
+    @Override
+    public Collection<S> findByPrescriptionDate(Date date, Class<S> dtoClass) {
+        Collection<Prescription> prescriptions = prescriptionRepository.findByPrescriptionDate(date);
+        return prescriptions.isEmpty() ? Collections.emptyList() :
+                prescriptions
+                        .stream()
+                        .map(prescription -> mapper.map(prescription, dtoClass))
+                        .collect(Collectors.toList());
     }
 
     @Override

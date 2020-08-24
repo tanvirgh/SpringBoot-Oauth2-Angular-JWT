@@ -2,8 +2,8 @@
 <div class="row">
   <form [formGroup]="prescriptionForm">
     <div class="form-group">
-      <mat-label for="patientName">Patient Name</mat-label>
-      <input matInput type="text" class="form-control" formControlName="patientName" data-toggle="tooltip" data-placement="right"
+      <label for="patientName">Patient Name</label>
+      <input type="text" class="form-control" formControlName="patientName" data-toggle="tooltip" data-placement="right"
         title="Enter Patient Name">
       <!-- <div class="alert alert-danger" *ngIf = "(PatientName.touched) && (PatientName.invalid)"
                style="margin-top: 5px;">
@@ -15,8 +15,8 @@
     </div>
 
     <div class="form-group">
-      <mat-label for="age">Age</mat-label>
-      <input matInput type="text" class="form-control" formControlName="age" data-toggle="tooltip" data-placement="right"
+      <label for="age">Age</label>
+      <input type="text" class="form-control" formControlName="age" data-toggle="tooltip" data-placement="right"
         title="Enter age">
       <!-- <div class="alert alert-danger" *ngIf = "(Age.touched) && (Age.invalid)"
                style="margin-top: 5px;">
@@ -28,7 +28,7 @@
     </div>
 
     <div class="form-group">
-      <mat-label for="gender">Gender</mat-label>
+      <label for="gender">Gender</label>
       <select class="form-control" formControlName="gender" data-toggle="tooltip" data-placement="right"
         title="Select Gender">
         <option value="null">--Select Gender--</option>
@@ -37,8 +37,8 @@
       </select>
     </div>
     <div class="form-group">
-      <button mat-button class="btn btn-primary" [mat-dialog-close]="prescriptionForm.value">Submit</button>&nbsp;  &nbsp;  
-      <button mat-button class="btn btn-secondary" (click)="closeDialog()">Cancel</button>
+      <button class="btn btn-primary" [mat-dialog-close]="prescriptionForm.value">Submit</button>&nbsp;  &nbsp;  
+      <button class="btn btn-secondary" (click)="closeDialog()">Cancel</button>
     </div>
     
   </form>

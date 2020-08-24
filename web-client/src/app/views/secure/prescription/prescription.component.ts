@@ -79,7 +79,8 @@ export class PrescriptionComponent implements OnInit {
       console.log(editedPrescription);
       if(editedPrescription) {
         this.prescriptionService.updatePrescription(editedPrescription).subscribe(prescriptionData => {
-          console.log('prescripted edited data arrived ', prescriptionData)
+          console.log('prescripted edited data arrived ', prescriptionData);
+          this.prescriptionList = this.prescriptionList.map(prescription => prescription.id === prescriptionData.id ? prescriptionData : prescription);
         });
       }
     });
@@ -98,7 +99,8 @@ export class PrescriptionComponent implements OnInit {
       console.log(newPrescription);
       if(newPrescription) {
         this.prescriptionService.createPrescription(newPrescription).subscribe(prescriptionData => {
-          console.log('prescripted edited data arrived ', prescriptionData)
+          console.log('prescripted edited data arrived ', prescriptionData);
+          this.prescriptionList.unshift(prescriptionData);
         });
       }
     });

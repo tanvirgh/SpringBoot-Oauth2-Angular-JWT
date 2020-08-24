@@ -18,7 +18,7 @@
 
       <div class="form-group">
         <label for="search"><b>Search Prescription:</b></label>
-        <input [(ngModel)]="filter.title" id="search" name="search" class="form-control" style="width: 20%">
+        <input [(ngModel)]="filter.title" id="search-box" name="search" class="form-control" style="width: 20%">
       </div>
 
       <button (click)="search()" [disabled]="!f?.valid" class="btn btn-danger">Search</button>

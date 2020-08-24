@@ -2,13 +2,6 @@
 
 This is a step by step guide how to up and run this  application using spring boot and gradle build system.
 
-### Prerequisites
-
-* Java 1.8 or later
-* Gradle 4.6 or later 
-* PostgreSQL   
-[TODO: Installation Detais]
-
 
 ### Running the Application
 

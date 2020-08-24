@@ -55,7 +55,7 @@ export class PrescriptionDetailComponent implements OnInit {
     return this.prescriptionsaveform.get('gender');
   }
 
-  addStudentForm(){
+  addPrescriptionForm() {
     this.submitted=false;
     this.prescriptionsaveform.reset();
   }

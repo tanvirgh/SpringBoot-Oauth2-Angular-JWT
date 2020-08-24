@@ -5,9 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author razib
- * @date 8/15/18
- * @email fakrul@impelitsolutions.com
+ * Creator : Tanvir Chowdhury
+ * Date    : 2020-08-23
  */
 
 public class DateUtil {

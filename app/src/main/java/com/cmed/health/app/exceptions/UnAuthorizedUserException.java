@@ -4,9 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * @author razib
- * @date 11/4/18
- * @email fakrul@impelitsolutions.com
+ * Creator : Tanvir Chowdhury
+ * Date    : 2020-08-23
  */
 @ResponseStatus(code = HttpStatus.UNAUTHORIZED, value = HttpStatus.UNAUTHORIZED)
 public class UnAuthorizedUserException extends RuntimeException {

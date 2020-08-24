@@ -1,9 +1,8 @@
 package com.cmed.health.app.api;
 
 /**
- * @author razib
- * @date 5/14/18
- * @email fakrul@impelitsolutions.com
+ * Creator : Tanvir Chowdhury
+ * Date    : 2020-08-23
  */
 public class ApiParameters {
     public static final String INCLUDES = "includes";

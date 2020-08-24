@@ -16,9 +16,8 @@ import org.springframework.web.context.WebApplicationContext;
 import javax.servlet.Filter;
 
 /**
- * @author razib
- * @date 5/6/18
- * @email fakrul@impelitsolutions.com
+ * Creator : Tanvir Chowdhury
+ * Date    : 2020-08-23
  */
 
 @Configuration

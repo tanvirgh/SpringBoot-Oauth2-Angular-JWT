@@ -10,9 +10,8 @@ import java.security.SecureRandom;
 import java.util.Base64;
 
 /**
- * @author razib
- * @date 9/24/18
- * @email fakrul@impelitsolutions.com
+ * Creator : Tanvir Chowdhury
+ * Date    : 2020-08-23
  */
 
 @Log4j2

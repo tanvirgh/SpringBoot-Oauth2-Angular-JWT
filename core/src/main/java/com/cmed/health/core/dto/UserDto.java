@@ -1,18 +1,14 @@
 package com.cmed.health.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
 import java.util.Objects;
 
 /**
- * @author razib
- * @date 8/8/18
- * @email fakrul@impelitsolutions.com
+ * Creator : Tanvir Chowdhury
+ * Date    : 2020-08-23
  */
 
 @Getter
@@ -29,10 +25,6 @@ public class UserDto extends BaseDto {
     private String email;
 
     private String password;
-
-    private Long organizationId;
-
-    private String organizationName;
 
     private String roleName;
 

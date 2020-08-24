@@ -1,6 +1,5 @@
 package com.cmed.health.core.enums;
 
-import com.sun.tools.javah.Gen;
 import lombok.Getter;
 
 import javax.persistence.AttributeConverter;

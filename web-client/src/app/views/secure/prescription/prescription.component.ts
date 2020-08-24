@@ -6,6 +6,8 @@ import { PrescriptionFilter } from "../../../model/prescription.filter";
 import { Prescription } from "../../../model/prescription.model";
 import { PrescriptionService } from "../../../service/prescription/prescription.service";
 import { PrescriptionDetailComponent } from './prescription-detail/prescription-detail.component';
+import { fromEvent } from "rxjs/internal/observable/fromEvent";
+import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-prescription',
@@ -20,10 +22,21 @@ export class PrescriptionComponent implements OnInit {
   filter = new PrescriptionFilter();
   feedback: any = {};
 
+
   constructor(private prescriptionService : PrescriptionService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getPrescriptionList();
+    
+    const searchBox = document.getElementById('search-box');
+    fromEvent(searchBox, 'input').pipe(
+      map((e: KeyboardEvent) => (e.target as HTMLInputElement).value),
+      filter(text => text.length > 2),
+      debounceTime(10),
+      distinctUntilChanged()
+    ).subscribe(data => {
+      console.log('searched:', data);
+    });
   }
 
   select(selected: Prescription): void {

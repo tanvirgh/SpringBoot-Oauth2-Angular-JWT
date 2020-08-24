@@ -1,0 +1,43 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+
+    <span class="example-fill-remaining-space"></span>
+    <span class="align-center"></span>
+    <span class="example-spacer"></span>
+    <!--<button mat-button>About</button>
+    <button mat-button>Contact</button>-->
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>PrescriptionEdit</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form *ngIf="prescription" #editForm="ngForm" (ngSubmit)="save()">
+
+      <div class="form-group">
+        <label>Id</label>
+        {{prescription.id || 'n/a'}}
+      </div>
+
+      <div class="form-group">
+        <label for="patientName">Patient Name</label>
+        <input [(ngModel)]="prescription.patientName" id="patientName" name="patientName" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input [(ngModel)]="prescription.age" id="age" name="age" class="form-control">
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Save</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </form>
+
+
+
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,44 @@
+//help: https://guides.gradle.org/creating-multi-project-builds/
+//block applies for all sub projects (app, core) and 'rootProject'
+allprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+
+   
+    version = '1.0'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    //repositories
+    repositories {
+        mavenCentral()
+    }
+
+    ext {
+        springBootVersion = '2.0.1.RELEASE'
+    }
+
+}
+
+//block applies for sub projects(app, core)
+//a project could have many numbers of 'allproject' and 'subproject' blocks
+
+subprojects {
+
+    configurations {
+        all*.exclude group: "org.slf4j", module: "slf4j-log4j12"
+    }
+
+    dependencies {
+
+        compileOnly 'org.projectlombok:lombok'
+
+        testCompile 'org.springframework.boot:spring-boot-starter-test'
+
+        compile 'org.apache.commons:commons-lang3:3.8.1'
+        compile'commons-io:commons-io:2.6'
+        compile 'org.springframework.boot:spring-boot-starter-security'
+    }
+}

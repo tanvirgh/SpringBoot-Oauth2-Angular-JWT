@@ -1,0 +1,24 @@
+.error{
+  color: #FF0000;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.example-card {
+  width: 400px;
+  margin: 10% auto;
+}
+.mat-card-title{
+  font-size: 16px;
+}
+
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}

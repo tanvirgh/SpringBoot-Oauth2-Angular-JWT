@@ -1,0 +1,4 @@
+rootProject.name = 'cmed-asignment'
+
+include 'core'
+include 'app'

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" th:href="@{/css/custom.css}"/>
+    <link rel="stylesheet" th:href="@{/css/SimpleStarRating.css}"/>
+
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/ie-styles.css}" />
+    <![endif]-->
+
+    <script type="text/javascript" th:src="@{/js/jquery-1.10.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/request.js}"></script>
+    <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
+
+
+
+</head>
+<body>
+<input type="hidden" id="participantTokenId" th:value="${session.token}" th:unless="${session == null}"/>
+<input type="hidden" id="participantOrgId" th:value="${session.orgId}" th:unless="${session == null}"/>
+<input type="hidden" id="participantSurveyId" th:value="${session.surveyId}" th:unless="${session == null}"/>
+<input type="hidden" id="participantTeamLeadId" th:value="${session.teamLeadId}" th:unless="${session == null}"/>
+<input type="hidden" id="participantId" th:value="${session.participantId}" th:unless="${session == null}"/>
+<!--<input type="hidden" id="participantId" th:value="1" />-->
+<th:block th:replace="layouts/header :: header"/>
+<div class="container">
+    <th:block layout:fragment="content"/>
+</div>
+<th:block th:replace="layouts/footer :: footer"/>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+
+    <span class="example-fill-remaining-space"></span>
+    <span class="align-center"></span>
+    <span class="example-spacer"></span>
+    <!--<button mat-button>About</button>
+    <button mat-button>Contact</button>-->
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Prescriptions</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form #f="ngForm">
+
+      <div class="form-group">
+        <!--<label for="title">Search Prescription:</label>-->
+        <!--<input [(ngModel)]="filter.title" id="title" name="title" class="form-control">-->
+      </div>
+
+      <button (click)="search()" [disabled]="!f?.valid" class="btn btn-primary">Search</button>
+      <!--<a [routerLink]="['../prescriptions', 'new' ]" class="btn btn-default">New</a>-->
+    </form>
+
+
+    <div class="card" >
+      <!--*ngIf="prescriptionList.length > 0"-->
+      <!--<div *ngIf="feedback" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>-->
+      <div class="table-responsive">
+        <table class="table table-centered table-hover mb-0" id="datatable">
+          <thead>
+          <tr>
+            <th class="border-top-0" scope="col">Id</th>
+            <th class="border-top-0" scope="col">Patinet Name</th>
+            <th class="border-top-0" scope="col">Age</th>
+            <th class="border-top-0" scope="col" style="width:120px"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of prescriptionList" [class.active]="item === selectedPrescription">
+
+            <td>{{item.id}}</td>
+            <td>{{item.patientName}}</td>
+            <td>{{item.age}}</td>
+            <td style="white-space: nowrap">
+              <a [routerLink]="['../prescriptions', item.id ,'edit' ]" class="btn btn-secondary">Edit</a>&nbsp;
+              <button (click)="delete(item)" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

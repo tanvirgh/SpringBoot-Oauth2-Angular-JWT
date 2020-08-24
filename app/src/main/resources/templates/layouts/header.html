@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+<th:block th:fragment="header">
+     <span sec:authorize="isAuthenticated()">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!--ok header-->
+
+        </div>
+    </nav>
+     </span>
+</th:block>
+</body>
+</html>

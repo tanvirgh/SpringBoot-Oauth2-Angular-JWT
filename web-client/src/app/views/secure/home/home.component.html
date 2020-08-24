@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+
+    <span class="example-fill-remaining-space"></span>
+    <span class="align-center"></span>
+    <span class="example-spacer"></span>
+    <!--<button mat-button (click)="listOrganizations()">Organization</button>
+    <button mat-button (click)="listSurveys()">Survey</button>-->
+    <button *ngIf="isUserAdmin" mat-button (click)="list('surveys')">Surveys</button>
+    <button *ngIf="isUserAdmin || isUserManager" mat-button (click)="list('users')">Users</button>
+    <button *ngIf="isUserTeamLead" mat-button (click)="list('users')">Participants</button>
+  </mat-toolbar-row>
+</mat-toolbar>

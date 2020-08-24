@@ -39,7 +39,7 @@ $ ./gradlew bootRun
 
 * After doing all the stuffs you may successfully access the app using the base path http://localhost:4200
  
-   User name : comillatanvire@gmail.com 
+   User name : comillatanvir@gmail.com 
    Password  : admin
 
 * For the first time it may take a while to download and install the dependency.

@@ -1,6 +1,5 @@
 package com.cmed.health.core.dto;
 
-import com.cmed.health.core.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +27,7 @@ public class PrescriptionDto extends BaseDto{
     private int age;
 
 
-    private Gender gender;
+    private String gender;
 
 
 
@@ -40,4 +39,6 @@ public class PrescriptionDto extends BaseDto{
 
 
     private Date nextVisitDate = new Date();
+
+
 }

@@ -4,7 +4,7 @@ export class Prescription {
   prescriptionDate: string;
   patientName: string;
   age: number;
-  gender: number;
+  gender: string;
   diagnosis : string;
   medicine: string;
   nextVisitDate: string;

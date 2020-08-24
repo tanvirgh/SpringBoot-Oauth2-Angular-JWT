@@ -15,7 +15,7 @@ import java.util.Objects;
 public enum Gender {
 
     MAN(1, "Man"),
-    WOMAN(2, "WOMAN");
+    WOMAN(2, "Woman");
 
     private Integer id;
     private String name;

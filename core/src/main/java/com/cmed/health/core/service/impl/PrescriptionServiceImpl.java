@@ -2,12 +2,14 @@ package com.cmed.health.core.service.impl;
 
 import com.cmed.health.core.dto.PrescriptionDto;
 import com.cmed.health.core.entity.Prescription;
+import com.cmed.health.core.enums.Gender;
 import com.cmed.health.core.repository.PrescriptionRepository;
 import com.cmed.health.core.repository.UserRepository;
 import com.cmed.health.core.service.PrescriptionService;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -42,6 +44,7 @@ public class PrescriptionServiceImpl<S extends PrescriptionDto> implements Presc
 
     @Override
     public Optional<Prescription> findById(Long id) {
+
         return prescriptionRepository.findById(id);
     }
 
@@ -54,6 +57,7 @@ public class PrescriptionServiceImpl<S extends PrescriptionDto> implements Presc
                         .map(prescription -> mapper.map(prescription, dtoClass))
                         .collect(Collectors.toList());
     }
+
 
     @Override
     public Optional<S> findById(Long id, Class<S> dtoClass) {
@@ -72,6 +76,29 @@ public class PrescriptionServiceImpl<S extends PrescriptionDto> implements Presc
 
     @Override
     public Optional<S> persist(S dto) {
+        try {
+            Prescription prescription = mapper.map(dto, Prescription.class);
+            Optional<Prescription> presOptional = Optional.empty();
+            if (dto.getId() != null) {
+                presOptional = prescriptionRepository.findById(dto.getId());
+            }
+            if (presOptional.isPresent()) {
+                prescription.setPatientName(dto.getPatientName());
+                prescription.setAge(dto.getAge());
+                prescription.setPrescriptionDate(dto.getPrescriptionDate());
+                prescription.setDiagnosis(dto.getDiagnosis());
+                prescription.setGender(Gender.findByName(dto.getGender()));
+                prescription.setMedicine(dto.getMedicine());
+                prescription.setNextVisitDate(dto.getNextVisitDate());
+            }
+            prescription = prescriptionRepository.save(prescription);
+            return Optional.of((S) mapper.map(prescription, PrescriptionDto.class));
+
+        } catch (DataIntegrityViolationException ex) {
+            //TODO: log error
+        }
+
         return Optional.empty();
+
     }
 }

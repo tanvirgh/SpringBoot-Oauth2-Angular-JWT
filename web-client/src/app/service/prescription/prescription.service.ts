@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
-import { ApiConstants } from '../../../configs/api-constants';
-import { Prescription } from "../../model/prescription.model";
-import { Observable } from "rxjs";
-import { PrescriptionFilter } from "../../model/prescription.filter";
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
+import {ApiConstants} from '../../../configs/api-constants';
+import {Prescription} from "../../model/prescription.model";
+import {Observable} from "rxjs";
+import {PrescriptionFilter} from "../../model/prescription.filter";
 
 const headers = new HttpHeaders().set('Accept', 'application/json');
 
@@ -41,7 +41,7 @@ export class PrescriptionService {
 
   find(filter: PrescriptionFilter): Observable<Prescription[]> {
     const params = {
-      title: filter.title,
+      title: filter.date,
     };
     const prescriptions = 'http://localhost:8080/prescriptions';
     return this.http.get<Prescription[]>(prescriptions, { params, headers });

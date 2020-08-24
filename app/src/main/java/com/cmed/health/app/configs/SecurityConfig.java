@@ -22,6 +22,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.firewall.HttpFirewall;
 import org.springframework.security.web.firewall.StrictHttpFirewall;
 
+/**
+ * Creator : Tanvir Chowdhury
+ * Date    : 2020-08-24
+ */
 
 @Configuration
 @EnableWebSecurity
@@ -60,8 +64,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-            .userDetailsService(securityService)
-            .passwordEncoder(passwordEncoder);
+                .userDetailsService(securityService)
+                .passwordEncoder(passwordEncoder);
     }
 
     @Bean
@@ -81,50 +85,45 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
 
         http
-            .cors().and()
-            .csrf().disable()
-            .exceptionHandling()
+                .cors().and()
+                .csrf().disable()
+                .exceptionHandling()
                 .authenticationEntryPoint(unauthorizedHandler)
                 .and()
-            .sessionManagement()
+                .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-            .authorizeRequests()
-            .antMatchers(
-                    HttpMethod.GET,
-                    "/",
-                    "/*.html",
-                    "/favicon.ico",
-                    "/**/*.html",
-                    "/**/*.css",
-                    "/**/*.images",
-                    "/**/*.js",
-                    "/**/*.woff2",
-                    "/**/*.ttf",
-                    "/**/*.woff",
-                    "/**/*.png",
-                    "/**/*.jpg",
-                    "/**/*.gif",
-                    "/v2/**",					// swagger specification
-                    "/swagger-resources/**",    // swagger specification
-                    "/webjars/**"				// swagger specification
+                .authorizeRequests()
+                .antMatchers(
+                        HttpMethod.GET,
+                        "/",
+                        "/*.html",
+                        "/favicon.ico",
+                        "/**/*.html",
+                        "/**/*.css",
+                        "/**/*.images",
+                        "/**/*.js",
+                        "/**/*.woff2",
+                        "/**/*.ttf",
+                        "/**/*.woff",
+                        "/**/*.png",
+                        "/**/*.jpg",
+                        "/**/*.gif",
+                        "/v2/**",					// swagger specification
+                        "/swagger-resources/**",    // swagger specification
+                        "/webjars/**"				// swagger specification
                 ).permitAll()
-            .antMatchers("/auth/**").permitAll()
-            .anyRequest().authenticated();
+                .antMatchers("/auth/**").permitAll()
+                .anyRequest().authenticated();
         http
-            .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
         http.headers().cacheControl();
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/participants/**",
-                "/api/plumes/**",
-                "/api/aspects/**",
-                "/api/aspectextras/**",
-                "/api/responses/**",
-                "/api/categories/**",
-                "/api/surveyors/**");
+        web.ignoring().antMatchers("/prescriptions/**",
+                "/api/responses/**");
         //TODO: create and open and separate end point for participants to save user responses;
         // this end point should be used by only team lead and back end
     }

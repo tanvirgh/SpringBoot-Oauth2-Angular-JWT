@@ -20,5 +20,4 @@ public interface PrescriptionService<S extends PrescriptionDto> extends BaseServ
 
 
 
-
 }

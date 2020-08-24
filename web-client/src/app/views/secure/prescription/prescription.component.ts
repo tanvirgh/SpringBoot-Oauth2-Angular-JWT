@@ -1,13 +1,13 @@
-import { HttpResponse } from "@angular/common/http";
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { PrescriptionFilter } from "../../../model/prescription.filter";
-import { Prescription } from "../../../model/prescription.model";
-import { PrescriptionService } from "../../../service/prescription/prescription.service";
-import { PrescriptionDetailComponent } from './prescription-detail/prescription-detail.component';
-import { fromEvent } from "rxjs/internal/observable/fromEvent";
-import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
+import {HttpResponse} from "@angular/common/http";
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import {PrescriptionFilter} from "../../../model/prescription.filter";
+import {Prescription} from "../../../model/prescription.model";
+import {PrescriptionService} from "../../../service/prescription/prescription.service";
+import {PrescriptionDetailComponent} from './prescription-detail/prescription-detail.component';
+import {fromEvent} from "rxjs/internal/observable/fromEvent";
+import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-prescription',
@@ -74,7 +74,11 @@ export class PrescriptionComponent implements OnInit {
       id: new FormControl(tmpPrescription.id),
       patientName:new FormControl(tmpPrescription.patientName , [Validators.required , Validators.minLength(5) ] ),
       age:new FormControl(tmpPrescription.age,[Validators.required,Validators.email]),
-      gender:new FormControl(tmpPrescription.gender,[Validators.required,Validators.email])
+      gender: new FormControl(tmpPrescription.gender, [Validators.required, Validators.email]),
+      prescriptionDate: new FormControl(tmpPrescription.prescriptionDate, [Validators.required, Validators.email]),
+      diagnosis: new FormControl(tmpPrescription.diagnosis, [Validators.required, Validators.email]),
+      medicine: new FormControl(tmpPrescription.medicine, [Validators.required, Validators.email]),
+      nextVisitDate: new FormControl(tmpPrescription.nextVisitDate, [Validators.required, Validators.email])
     });
     return prescriptionform;
   }

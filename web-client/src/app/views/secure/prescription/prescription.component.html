@@ -55,7 +55,7 @@
             <td>{{item.nextVisitDate}}</td>
 
             <td style="white-space: nowrap">
-              <a [routerLink]="['../prescriptions', item.id ,'edit' ]" class="btn btn-secondary">Edit</a>&nbsp;
+              <a [routerLink]="[item.id ,'edit' ]" class="btn btn-secondary">Edit</a>&nbsp;
               <button (click)="delete(item)" class="btn btn-danger">Delete</button>
             </td>
           </tr>
@@ -66,9 +66,12 @@
 
   </mat-card-content>
   <mat-card-footer>
-  <footer class="footer">
-    <span class="text-muted" style="alignment: left;margin-left: 10px;">All Rights Reserved 2020 @CmedHealth</span>
-  </footer>
+    <footer class="footer">
+      <span class="text-muted" style="alignment: left;margin-left: 10px;">All Rights Reserved 2020 @CmedHealth</span>
+    </footer>
   </mat-card-footer>
 
 </mat-card>
+
+
+<router-outlet></router-outlet>

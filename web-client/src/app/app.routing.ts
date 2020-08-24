@@ -8,6 +8,7 @@ import {AuthGuard} from './service/auth/auth.guard';
 import {PrescriptionComponent} from "./views/secure/prescription/prescription.component";
 import {PrescriptionEditComponent} from "./views/secure/prescription/prescription-edit/prescription-edit.component";
 import {PrescriptionDetailComponent} from "./views/secure/prescription/prescription-detail/prescription-detail.component";
+import {NgModule} from '@angular/core';
 
 
 const routes: Routes = [
@@ -19,7 +20,6 @@ const routes: Routes = [
   },
 
   { path: 'prescriptions', component: PrescriptionComponent,canActivate: [AuthGuard], children: [
-      { path: '', component: PrescriptionComponent },
       { path: 'new', component: PrescriptionEditComponent },
       { path: ':id', component: PrescriptionDetailComponent },
       { path: ':id/edit', component: PrescriptionEditComponent }
@@ -46,7 +46,12 @@ const routes: Routes = [
 
 
   // { path: '', redirectTo: 'home', pathMatch: 'full', canActivate: [AuthGuard] },
-   { path: '**', redirectTo: 'login', canActivate: [AuthGuard] },
+  {path: '**', redirectTo: 'login', canActivate: [AuthGuard]},
 ];
 
-export const routing = RouterModule.forRoot(routes);
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {
+}

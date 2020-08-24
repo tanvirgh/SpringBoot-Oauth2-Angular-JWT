@@ -1,10 +1,10 @@
 package com.cmed.health.core.service;
 
 import com.cmed.health.core.dto.PrescriptionDto;
-import com.cmed.health.core.dto.UserDto;
 import com.cmed.health.core.entity.Prescription;
-import com.cmed.health.core.entity.User;
 
+import java.util.Collection;
+import java.util.Date;
 import java.util.Optional;
 
 /**
@@ -15,6 +15,8 @@ import java.util.Optional;
 public interface PrescriptionService<S extends PrescriptionDto> extends BaseService<Prescription, S> {
 
     Optional<Prescription> findById(Long id);
+
+    Collection<S> findByPrescriptionDate(Date date, Class<S> dtoClass);
 
 
 

@@ -16,9 +16,9 @@ This is a step by step guide how to up and run this  application using spring bo
 
 * Clone project from github
 
-*create a mysql database with name cmedhealth;
+* Create a mysql database with name 'cmedhealth';
 
-* for sample data please run the sql dump file from project directorui.
+* For sample data please run the sql dump file from project directory.
 
 * Update the ./app/src/main/resources/application-dev.properties file - 
 
@@ -42,9 +42,14 @@ $ ./gradlew bootRun
  $ ng serve
 
 ```
+
+
+* After doing all the stuffs you may successfully access the app using the base path http://localhost:4200
+
 * For the first time it may take a while to download and install the dependency.
-* After doing all the stuffs you may succesfully access the app using the base path http://localhost:8080/kantell
+
 * Using curl from command prompt or 'Rest Client' or 'Postman' from browser plugin you could test your application now
+
 * Some example of API: 
     * authentication , endpoint: http://localhost:8080/cmed/auth
     

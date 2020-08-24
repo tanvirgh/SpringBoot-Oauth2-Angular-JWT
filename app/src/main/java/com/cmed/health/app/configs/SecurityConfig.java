@@ -1,8 +1,8 @@
 package com.cmed.health.app.configs;
 
-import com.cmed.health.app.util.RequestContext;
 import com.cmed.health.app.security.jwt.JwtAuthenticationEntryPoint;
 import com.cmed.health.app.security.jwt.JwtAuthenticationTokenFilter;
+import com.cmed.health.app.util.RequestContext;
 import com.cmed.health.core.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -124,6 +124,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 "/api/aspectextras/**",
                 "/api/responses/**",
                 "/api/categories/**",
-                "/api/surveyors/**"); //TODO: create and open and separate end point for participants to save user responses; this end point should be used by only team lead and back end
+                "/api/surveyors/**");
+        //TODO: create and open and separate end point for participants to save user responses;
+        // this end point should be used by only team lead and back end
     }
 }

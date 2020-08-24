@@ -25,7 +25,9 @@ const routes: Routes = [
       { path: ':id/edit', component: PrescriptionEditComponent }
     ]},
 
-  // {
+
+
+// {
   //   path: 'prescriptions', component: PrescriptionComponent,canActivate: [AuthGuard], children: [
   //     {path: '', redirectTo: 'list', pathMatch: 'full'}
   //   ]

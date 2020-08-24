@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
-import {User} from '../../model/user.model';
 import {environment} from '../../../environments/environment';
 import {ApiConstants} from '../../../configs/api-constants';
 import {Prescription} from "../../model/prescription.model";
@@ -48,7 +47,7 @@ export class PrescriptionService {
     return this.http.get<Prescription[]>(prescriptions, {params, headers});
   }
 
-  save(entity: Prescription): Observable<Prescription> {
+  savePrescription(entity: Prescription): Observable<Prescription> {
     let params = new HttpParams();
     let url = '';
     if (entity.id) {

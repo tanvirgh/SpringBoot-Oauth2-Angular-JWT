@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Prescription} from "../../../../model/prescription.model";
 import {PrescriptionService} from "../../../../service/prescription/prescription.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
@@ -43,7 +43,7 @@ export class PrescriptionEditComponent implements OnInit {
   }
 
   save() {
-    this.prescriptionService.save(this.prescription).subscribe(
+    this.prescriptionService.savePrescription(this.prescription).subscribe(
       prescription => {
         this.prescription = prescription;
         // this.note.id = +this.id;

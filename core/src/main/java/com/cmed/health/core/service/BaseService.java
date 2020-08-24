@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface BaseService<T extends BaseEntity, S extends BaseDto> {
 
     Optional<S> findById(Long id, Class<S> dtoClass);
-//
+
     Collection<S> getAll(Class<S> dtoClass);
 
     Optional<S> persist(S dto);

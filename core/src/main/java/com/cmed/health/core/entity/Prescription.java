@@ -35,11 +35,11 @@ public class Prescription extends BaseEntity {
     private Gender gender;
 
 
-    @Column(name = "diagnosis_details", nullable = false)
+    @Column(name = "diagnosis_details", nullable = false, columnDefinition = "TEXT")
     private String diagnosis;
 
 
-    @Column(name = "medicine", nullable = false)
+    @Column(name = "medicine", nullable = false, columnDefinition = "TEXT")
     private String medicine;
 
     @Column(name = "date_of_next_visit", nullable = false)

@@ -1,7 +1,8 @@
 package com.cmed.health.core.dto;
 
 /**
- * Created by fakrul
+ * Creator : Tanvir Chowdhury
+ * Date    : 2020-08-23
  */
 public enum Authority {
     ADMIN(1L),

@@ -27,7 +27,7 @@ export class PrescriptionComponent implements OnInit {
 
   ngOnInit() {
     this.getPrescriptionList();
-    
+
     const searchBox = document.getElementById('search-box');
     fromEvent(searchBox, 'input').pipe(
       map((e: KeyboardEvent) => (e.target as HTMLInputElement).value),
@@ -37,6 +37,8 @@ export class PrescriptionComponent implements OnInit {
     ).subscribe(data => {
       console.log('searched:', data);
     });
+
+
   }
 
   select(selected: Prescription): void {
@@ -44,7 +46,13 @@ export class PrescriptionComponent implements OnInit {
   }
 
   search(): void {
-    this.prescriptionService.load(this.filter);
+    this.prescriptionService.find(this.filter).subscribe(result => {
+        this.prescriptionList = result;
+      },
+      err => {
+        console.error('error loading', err);
+      }
+    );
   }
 
   getPrescriptionList() {

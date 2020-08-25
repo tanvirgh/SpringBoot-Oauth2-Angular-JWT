@@ -45,7 +45,16 @@
       <div class="form-group col-md-6">
         <label for="prescriptionDate">PrescriptionDate</label>
         <input type="date" class="form-control" formControlName="prescriptionDate" data-toggle="tooltip"
-               data-placement="right" id="prescriptionDate" title="Enter Date">
+               data-placement="right" id="prescriptionDate" title="Enter Date" data-date-format="dd-mm-yyyy">
+        <!--<input class="form-control date-picker smart-date-picker cf-date-change" size="16"-->
+        <!--data-date-format="dd/mm/yyyy"-->
+        <!--th:autocomplete="off"-->
+        <!--data-features="smart-date-picker cf-date-change"-->
+        <!--th:name="startDate" th:id="startDate"-->
+        <!--type="text" placeholder="dd/mm/jjjj"-->
+        <!--th:value="*{#dates.format(startDate,'dd/MM/yyyy')}"-->
+        <!--th:attr="data-action=${webLinkFactory.financierByFunction(client)}"-->
+        <!--th:disabled="${isDisableForStatus == true}"/>-->
         <!--<div *ngIf="prescriptionDate.invalid && (prescriptionDate.dirty || prescriptionDate.touched)"
              class="alert alert-danger">
           <div *ngIf="prescriptionDate.errors.required">

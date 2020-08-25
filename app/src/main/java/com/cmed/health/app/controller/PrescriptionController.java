@@ -5,12 +5,14 @@ import com.cmed.health.app.api.ApiProvider;
 import com.cmed.health.app.util.ResponseMaker;
 import com.cmed.health.core.dto.PrescriptionDto;
 import com.cmed.health.core.service.PrescriptionService;
+import com.cmed.health.core.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Optional;
 
 /**
@@ -56,7 +58,9 @@ public class PrescriptionController {
     @GetMapping
     public Collection<PrescriptionDto> getAll() {
 
-        return prescriptionService.getAll(PrescriptionDto.class);
+        Date today = DateUtils.parseDate(DateUtils.format(new Date()), "yyyy-MM-dd");
+
+        return prescriptionService.findByPrescriptionDate(today, PrescriptionDto.class);
     }
 
     @DeleteMapping(ApiProvider.PrescriptionApi.PRESCRIPTIONID)
@@ -64,6 +68,17 @@ public class PrescriptionController {
     public void deletePrescription(@PathVariable(name = ApiConstants.PRESCRIPTION_ID) long id) {
         prescriptionService.remove(id);
     }
+
+
+    @GetMapping("/filter")
+    public Collection<PrescriptionDto> getFilteredData(@RequestParam("date") String date) {
+
+        Date prescriptionDate = DateUtils.parseDate(date, "yyyy-MM-dd");
+
+        return prescriptionService.findByPrescriptionDate(prescriptionDate, PrescriptionDto.class);
+    }
+
+
 
 
 

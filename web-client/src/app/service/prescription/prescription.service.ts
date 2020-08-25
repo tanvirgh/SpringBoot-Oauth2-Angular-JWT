@@ -32,7 +32,7 @@ export class PrescriptionService {
   load(filter: PrescriptionFilter): void {
     this.find(filter).subscribe(result => {
       this.prescriptionList = result;
-    },
+      },
       err => {
         console.error('error loading', err);
       }
@@ -41,10 +41,11 @@ export class PrescriptionService {
 
   find(filter: PrescriptionFilter): Observable<Prescription[]> {
     const params = {
-      title: filter.date,
+      date: filter.date,
     };
-    const prescriptions = 'http://localhost:8080/prescriptions';
-    return this.http.get<Prescription[]>(prescriptions, { params, headers });
+    const baseUrl = 'http://localhost:8080/cmed/api/prescriptions';
+    return this.http.get<Prescription[]>(baseUrl + '/filter', {params, headers});
+
   }
 
   savePrescription(entity: Prescription): Observable<Prescription> {

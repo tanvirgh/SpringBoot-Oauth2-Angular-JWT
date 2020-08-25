@@ -36,13 +36,6 @@ public class PrescriptionController {
         return responseMaker.responseForPost(prescriptionDtoOptional);
     }
 
-    @PostMapping
-    public ResponseEntity<PrescriptionDto> update(@RequestBody PrescriptionDto prescriptionDto,
-                                                  @PathVariable(name = ApiConstants.PRESCRIPTION_ID) long id) {
-        Optional<PrescriptionDto> prescriptionDtoOptional = prescriptionService.findById(id, PrescriptionDto.class);
-        prescriptionService.update(id, prescriptionDto);
-        return responseMaker.responseForPost(prescriptionDtoOptional);
-    }
 
     @GetMapping(value = ApiProvider.PrescriptionApi.PRESCRIPTIONID, produces = "application/json")
     public ResponseEntity<PrescriptionDto> get(@PathVariable(name = ApiConstants.PRESCRIPTION_ID) long id) {

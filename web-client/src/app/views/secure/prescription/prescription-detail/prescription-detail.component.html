@@ -1,79 +1,79 @@
-<h3>Create Prescription</h3>
-<div class="row">
+<h4>Prescription Detail</h4>
+<p></p>
+<div>
   <form [formGroup]="prescriptionForm">
-    <div class="form-group">
-      <label for="patientName">Patient Name</label>
-      <input type="text" class="form-control" formControlName="patientName" data-toggle="tooltip" data-placement="right"
-        title="Enter Patient Name">
-      <!-- <div class="alert alert-danger" *ngIf = "(PatientName.touched) && (PatientName.invalid)"
-               style="margin-top: 5px;">
-            <span *ngIf="PatientName.errors.required">Student Name is Required</span>
-            <span *ngIf = "PatientName.errors.minlength">
-                        MinLength Error
-                    </span>
-          </div> -->
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="patientName">Patient Name : </label>
+        <input type="text" class="form-control" formControlName="patientName" data-toggle="tooltip"
+               data-placement="right" title="Enter Patient Name">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="age">Age :</label>
+        <input type="text" class="form-control" formControlName="age" data-toggle="tooltip" data-placement="right"
+               title="Enter age">
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="age">Age</label>
-      <input type="text" class="form-control" formControlName="age" data-toggle="tooltip" data-placement="right"
-        title="Enter age">
-      <!-- <div class="alert alert-danger" *ngIf = "(Age.touched) && (Age.invalid)"
-               style="margin-top: 5px;">
-            <span *ngIf="Age.errors.required">Student Email is Required</span>
-            <span *ngIf = "Age.errors.email">
-                        Invalid Email Format
-                    </span>
-          </div> -->
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="gender">Gender</label>
+        <select class="form-control" formControlName="gender" data-toggle="tooltip" data-placement="right"
+                title="Select Gender">
+          <option value="null">Select Gender</option>
+          <option value="Man">Man</option>
+          <option value="Woman">Woman</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="prescriptionDate">PrescriptionDate</label>
+        <input type="text" class="form-control" formControlName="prescriptionDate" data-toggle="tooltip"
+               data-placement="right"
+               title="Enter Date">
+
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="gender">Gender</label>
-      <select class="form-control" formControlName="gender" data-toggle="tooltip" data-placement="right"
-        title="Select Gender">
-        <option value="null">--Select Gender--</option>
-        <option value="Man">Man</option>
-        <option value="Woman">Woman</option>
-      </select>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="diagnosis">Diagnosis</label>
+
+        <textarea class="form-control" formControlName="diagnosis"
+                  id="diagnosis"
+                  placeholder="enter diagnosis">
+      </textarea>
+
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="medicine">Medicine</label>
+        <textarea class="form-control" formControlName="medicine"
+                  id="medicine"
+                  placeholder="enter medicine">
+      </textarea>
+
+      </div>
     </div>
 
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="nextVisitDate">Next visit Date</label>
+        <input type="text" class="form-control" formControlName="nextVisitDate" data-toggle="tooltip"
+               data-placement="right"
+               title="Enter Next visit Date">
 
-    <div class="form-group">
-      <label for="prescriptionDate">PrescriptionDate</label>
-      <input type="text" class="form-control" formControlName="prescriptionDate" data-toggle="tooltip"
-             data-placement="right"
-             title="Enter Date">
-
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="diagnosis">Diagnosis</label>
-      <input type="text-area" class="form-control" formControlName="diagnosis" data-toggle="tooltip"
-             data-placement="right"
-             title="Enter diagnosis">
-
+    <div class="form-group col-md-12">
+      <div class="text-center">
+        <button class="btn btn-primary" [mat-dialog-close]="prescriptionForm.value">Submit</button>&nbsp; &nbsp;
+        <button class="btn btn-secondary" (click)="closeDialog()">Cancel</button>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="medicine">Medicine</label>
-      <input type="text-area" class="form-control" formControlName="medicine" data-toggle="tooltip"
-             data-placement="right"
-             title="Enter Medicine">
-
-    </div>
-
-    <div class="form-group">
-      <label for="nextVisitDate">Next visit Date</label>
-      <input type="text" class="form-control" formControlName="nextVisitDate" data-toggle="tooltip"
-             data-placement="right"
-             title="Enter Next visit Date">
-
-    </div>
-    <div class="form-group">
-      <button class="btn btn-primary" [mat-dialog-close]="prescriptionForm.value">Submit</button>&nbsp;  &nbsp;  
-      <button class="btn btn-secondary" (click)="closeDialog()">Cancel</button>
-    </div>
-    
   </form>
-
 </div>
+

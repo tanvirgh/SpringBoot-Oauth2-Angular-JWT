@@ -84,11 +84,11 @@ export class PrescriptionComponent implements OnInit {
   }
 
   editPrescription(prescription: Prescription) {
-    
+
     const prescriptionForm = this.createPrescriptionForm(prescription);
 
     const dialogRef = this.dialog.open(PrescriptionDetailComponent, {
-      width: '250px',
+      width: 'auto',
       data: prescriptionForm
     });
 
@@ -108,7 +108,7 @@ export class PrescriptionComponent implements OnInit {
     const prescriptionForm = this.createPrescriptionForm();
 
     const dialogRef = this.dialog.open(PrescriptionDetailComponent, {
-      width: '250px',
+      width: 'auto',
       data: prescriptionForm
     });
 

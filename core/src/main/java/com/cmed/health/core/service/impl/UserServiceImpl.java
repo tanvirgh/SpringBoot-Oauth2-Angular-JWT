@@ -1,19 +1,18 @@
 package com.cmed.health.core.service.impl;
 
-import com.cmed.health.core.dto.Authority;
 import com.cmed.health.core.dto.UserDto;
 import com.cmed.health.core.entity.User;
 import com.cmed.health.core.repository.UserRepository;
-import com.cmed.health.core.entity.Role;
 import com.cmed.health.core.service.UserService;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -61,6 +60,11 @@ public class UserServiceImpl<S extends UserDto> implements UserService<S> {
 
     @Override
     public Optional<S> persist(S dto) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<S> update(Long id, S dto) {
         return Optional.empty();
     }
 

@@ -78,27 +78,24 @@ public class PrescriptionServiceImpl<S extends PrescriptionDto> implements Presc
     public Optional<S> persist(S dto) {
         try {
             Prescription prescription = mapper.map(dto, Prescription.class);
-            Optional<Prescription> presOptional = Optional.empty();
-            if (dto.getId() != null) {
-                presOptional = prescriptionRepository.findById(dto.getId());
-            }
-            if (presOptional.isPresent()) {
-                prescription.setPatientName(dto.getPatientName());
-                prescription.setAge(dto.getAge());
-                prescription.setPrescriptionDate(dto.getPrescriptionDate());
-                prescription.setDiagnosis(dto.getDiagnosis());
-                prescription.setGender(Gender.findByName(dto.getGender()));
-                prescription.setMedicine(dto.getMedicine());
-                prescription.setNextVisitDate(dto.getNextVisitDate());
-            }
             prescription = prescriptionRepository.save(prescription);
             return Optional.of((S) mapper.map(prescription, PrescriptionDto.class));
-
         } catch (DataIntegrityViolationException ex) {
             //TODO: log error
         }
-
         return Optional.empty();
+    }
 
+    @Override
+    public Optional<S> update(Long id, S dto) {
+        Prescription prescription = prescriptionRepository.getOne(id);
+        prescription.setPatientName(dto.getPatientName());
+        prescription.setAge(dto.getAge());
+        prescription.setPrescriptionDate(dto.getPrescriptionDate());
+        prescription.setDiagnosis(dto.getDiagnosis());
+        prescription.setGender(Gender.findByName(dto.getGender()));
+        prescription.setMedicine(dto.getMedicine());
+        prescription.setNextVisitDate(dto.getNextVisitDate());
+        return Optional.of((S) mapper.map(prescription, PrescriptionDto.class));
     }
 }

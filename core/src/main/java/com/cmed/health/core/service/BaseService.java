@@ -18,9 +18,9 @@ public interface BaseService<T extends BaseEntity, S extends BaseDto> {
 
     Optional<S> persist(S dto);
 
-    /*Optional<S> update(Long id, S dto);
+    Optional<S> update(Long id, S dto);
 
-    void remove(Long id);
+    /*void remove(Long id);
 
     void removeAll();*/
 }

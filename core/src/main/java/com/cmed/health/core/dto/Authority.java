@@ -12,6 +12,7 @@ public enum Authority {
     OTHER(5L);
 
     public final Long ID;
+
     private Authority(Long id){
         ID = id;
     }

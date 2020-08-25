@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.20)
 # Database: cmedhealth
-# Generation Time: 2020-08-24 05:58:19 +0000
+# Generation Time: 2020-08-25 13:37:00 +0000
 # ************************************************************
 
 
@@ -45,7 +45,11 @@ LOCK TABLES `prescriptions` WRITE;
 
 INSERT INTO `prescriptions` (`id`, `created_date`, `modified_date`, `version`, `age`, `diagnosis_details`, `patient_gender`, `medicine`, `date_of_next_visit`, `patient_name`, `date_of_prescription`)
 VALUES
-	(1,'2020-08-23 19:25:47.000000','2020-08-23 19:25:47.000000',1,12,'test','1','test','2020-08-30','fakrul','2020-08-20');
+	(3,'2020-08-25 01:42:31.476000','2020-08-25 16:20:54.538000',2,23,'Cough','Woman','Adovas','2020-12-22','tanvir ','2020-08-26'),
+	(8,'2020-08-25 14:25:16.952000','2020-08-25 14:25:16.952000',0,12,'asdsadsa','Man','adsdasdasd','2020-08-20','munmun','2020-08-25'),
+	(10,'2020-08-25 17:02:37.266000','2020-08-25 17:02:53.598000',1,34,'asdasd','Man','asdasdasd','2020-08-28','majed','2020-08-25'),
+	(11,'2020-08-25 19:30:05.984000','2020-08-25 19:30:05.984000',0,24,'test','Man','cavic c','2020-09-11','Shakil','2020-08-26'),
+	(12,'2020-08-25 19:31:25.085000','2020-08-25 19:31:25.085000',0,35,'test','Man','Ceevit','2020-08-31','soroj roy','2020-08-27');
 
 /*!40000 ALTER TABLE `prescriptions` ENABLE KEYS */;
 UNLOCK TABLES;

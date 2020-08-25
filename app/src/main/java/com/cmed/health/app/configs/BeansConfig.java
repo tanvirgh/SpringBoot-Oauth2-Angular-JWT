@@ -52,7 +52,7 @@ public class BeansConfig {
     public FilterRegistrationBean registerParticipantAuthFilter() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(getParticipantFilter());
-        registration.addUrlPatterns("/participants/*");
+        registration.addUrlPatterns("/prescriptions/*");
         registration.setName("participantAuthFilter");
         registration.setOrder(1);
         return registration;

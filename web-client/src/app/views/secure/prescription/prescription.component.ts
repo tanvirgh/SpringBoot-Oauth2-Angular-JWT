@@ -56,6 +56,7 @@ export class PrescriptionComponent implements OnInit {
   delete(prescription: Prescription): void {
     if (confirm('Are you sure?')) {
       this.prescriptionService.delete(prescription).subscribe(() => {
+          this.prescriptionList.splice(this.prescriptionList.indexOf(prescription), 1);
           this.feedback = {type: 'success', message: 'Delete was successful!'};
           setTimeout(() => {
             this.search();

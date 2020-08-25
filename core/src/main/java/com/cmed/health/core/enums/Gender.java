@@ -14,8 +14,8 @@ import java.util.Objects;
 @Getter
 public enum Gender {
 
-    MAN(1, "Man"),
-    WOMAN(2, "Woman");
+    Man(1, "Man"),
+    Woman(2, "Woman");
 
     private Integer id;
     private String name;

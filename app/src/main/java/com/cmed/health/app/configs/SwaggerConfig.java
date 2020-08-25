@@ -17,9 +17,9 @@ public class SwaggerConfig {
 
     @Bean
     public Docket api() {
-        ApiInfo apiInfo = new ApiInfoBuilder().title("Kantell Survey System API Collections")
-                .description("Kantell Survey")
-                .license("Kantell License")
+        ApiInfo apiInfo = new ApiInfoBuilder().title("Cmed Health API Collections")
+                .description("Cmed Health")
+                .license("CMED License")
                 .licenseUrl("https://www.google.com")
                 .version("1.0")
                 .build();

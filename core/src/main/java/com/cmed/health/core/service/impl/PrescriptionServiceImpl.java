@@ -101,4 +101,10 @@ public class PrescriptionServiceImpl<S extends PrescriptionDto> implements Presc
         Prescription newPrescription = prescriptionRepository.save(prescription);
         return Optional.of((S) mapper.map(newPrescription, PrescriptionDto.class));
     }
+
+    @Override
+    public void remove(Long id) {
+        Optional<Prescription> presOptional = prescriptionRepository.findById(id);
+        presOptional.ifPresent(prescription -> prescriptionRepository.delete(prescription));
+    }
 }

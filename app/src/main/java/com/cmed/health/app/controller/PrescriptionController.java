@@ -6,6 +6,7 @@ import com.cmed.health.app.util.ResponseMaker;
 import com.cmed.health.core.dto.PrescriptionDto;
 import com.cmed.health.core.service.PrescriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,7 +37,7 @@ public class PrescriptionController {
         return responseMaker.responseForPost(prescriptionDtoOptional);
     }
 
-    @PatchMapping(value = ApiProvider.PrescriptionApi.PRESCRIPTIONID, produces = "application/json")
+    @PutMapping(value = ApiProvider.PrescriptionApi.PRESCRIPTIONID, produces = "application/json")
     public ResponseEntity<PrescriptionDto> updatePrescription(@PathVariable(name = ApiConstants.PRESCRIPTION_ID) long id,
                                                               @RequestBody PrescriptionDto prescriptionDto) {
         Optional<PrescriptionDto> prescriptionDtoOptional = prescriptionService.update(id, prescriptionDto);
@@ -56,6 +57,12 @@ public class PrescriptionController {
     public Collection<PrescriptionDto> getAll() {
 
         return prescriptionService.getAll(PrescriptionDto.class);
+    }
+
+    @DeleteMapping(ApiProvider.PrescriptionApi.PRESCRIPTIONID)
+    @ResponseStatus(code = HttpStatus.OK)
+    public void deleteCategory(@PathVariable(name = ApiConstants.PRESCRIPTION_ID) long id) {
+        prescriptionService.remove(id);
     }
 
 

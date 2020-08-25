@@ -68,6 +68,11 @@ public class UserServiceImpl<S extends UserDto> implements UserService<S> {
         return Optional.empty();
     }
 
+    @Override
+    public void remove(Long id) {
+
+    }
+
 
     @Override
     public Optional<User> findUserByEmail(String email) {

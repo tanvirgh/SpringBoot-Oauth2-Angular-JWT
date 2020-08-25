@@ -73,14 +73,15 @@ export class PrescriptionComponent implements OnInit {
     const tmpPrescription = prescription ? prescription: new Prescription();
     const prescriptionform = new FormGroup({
       id: new FormControl(tmpPrescription.id),
-      patientName:new FormControl(tmpPrescription.patientName , [Validators.required , Validators.minLength(5) ] ),
-      age:new FormControl(tmpPrescription.age,[Validators.required,Validators.email]),
-      gender: new FormControl(tmpPrescription.gender, [Validators.required, Validators.email]),
-      prescriptionDate: new FormControl(tmpPrescription.prescriptionDate, [Validators.required, Validators.email]),
-      diagnosis: new FormControl(tmpPrescription.diagnosis, [Validators.required, Validators.email]),
-      medicine: new FormControl(tmpPrescription.medicine, [Validators.required, Validators.email]),
-      nextVisitDate: new FormControl(tmpPrescription.nextVisitDate, [Validators.required, Validators.email])
+      patientName: new FormControl(tmpPrescription.patientName, [Validators.required, Validators.minLength(5)]),
+      age: new FormControl(tmpPrescription.age, [Validators.required, Validators.pattern('[0-9]')]),
+      gender: new FormControl(tmpPrescription.gender, [Validators.required]),
+      prescriptionDate: new FormControl(tmpPrescription.prescriptionDate, [Validators.required]),
+      diagnosis: new FormControl(tmpPrescription.diagnosis, [Validators.required]),
+      medicine: new FormControl(tmpPrescription.medicine, [Validators.required]),
+      nextVisitDate: new FormControl(tmpPrescription.nextVisitDate, [Validators.required])
     });
+
     return prescriptionform;
   }
 
@@ -95,7 +96,8 @@ export class PrescriptionComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(editedPrescription => {
       console.log(editedPrescription);
-      if(editedPrescription) {
+
+      if (editedPrescription) {
         this.prescriptionService.updatePrescription(editedPrescription).subscribe(prescriptionData => {
           console.log('prescription edited data arrived ', prescriptionData);
           this.prescriptionList = this.prescriptionList.map(prescription => prescription.id === prescriptionData.id ? prescriptionData : prescription);

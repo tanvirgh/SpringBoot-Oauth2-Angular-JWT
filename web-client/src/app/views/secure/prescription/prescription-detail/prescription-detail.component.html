@@ -6,32 +6,52 @@
     <div class="row">
       <div class="form-group col-md-6">
         <label for="patientName">Patient Name : </label>
-        <input type="text" class="form-control" formControlName="patientName" data-toggle="tooltip"
-               data-placement="right" title="Enter Patient Name">
+        <input type="text" class="form-control" name="patientName" formControlName="patientName"
+               placeholder="Enter Patient Name" id="patientName" required>
+        <!--<div *ngIf="patientName.invalid && (patientName.dirty || patientName.touched)" class="alert alert-danger">
+          <div *ngIf="patientName.errors.required">Name required</div>
+          <div *ngIf="patientName.errors.minlength">Name min length is 5</div>
+        </div>-->
       </div>
 
       <div class="form-group col-md-6">
         <label for="age">Age :</label>
-        <input type="text" class="form-control" formControlName="age" data-toggle="tooltip" data-placement="right"
-               title="Enter age">
+        <input type="text" class="form-control" id="age" formControlName="age" placeholder="Enter age" required>
+        <!--<div *ngIf="age.invalid && (age.dirty || age.touched)"
+             class="alert alert-danger">
+          <div *ngIf="age.errors.required">
+            Age is required.
+          </div>
+        </div>-->
       </div>
     </div>
 
     <div class="row">
       <div class="form-group col-md-6">
         <label for="gender">Gender</label>
-        <select class="form-control" formControlName="gender" data-toggle="tooltip" data-placement="right"
-                title="Select Gender">
+        <select class="form-control" formControlName="gender"
+                title="Select Gender" id="gender" required="required">
           <option value="null">Select Gender</option>
           <option value="Man">Man</option>
           <option value="Woman">Woman</option>
         </select>
+        <!--<div *ngIf="gender.invalid && (gender.dirty || gender.touched)"
+             class="alert alert-danger">
+          <div *ngIf="gender.errors.required">
+            Geder is required.
+          </div>
+        </div>-->
       </div>
       <div class="form-group col-md-6">
         <label for="prescriptionDate">PrescriptionDate</label>
-        <input type="text" class="form-control" formControlName="prescriptionDate" data-toggle="tooltip"
-               data-placement="right"
-               title="Enter Date">
+        <input type="date" class="form-control" formControlName="prescriptionDate" data-toggle="tooltip"
+               data-placement="right" id="prescriptionDate" title="Enter Date">
+        <!--<div *ngIf="prescriptionDate.invalid && (prescriptionDate.dirty || prescriptionDate.touched)"
+             class="alert alert-danger">
+          <div *ngIf="prescriptionDate.errors.required">
+            prescriptionDate is required.
+          </div>
+        </div>-->
 
       </div>
     </div>
@@ -40,19 +60,29 @@
       <div class="form-group col-md-6">
         <label for="diagnosis">Diagnosis</label>
 
-        <textarea class="form-control" formControlName="diagnosis"
-                  id="diagnosis"
+        <textarea class="form-control" name="diagnosis" formControlName="diagnosis" id="diagnosis"
                   placeholder="enter diagnosis">
-      </textarea>
+        </textarea>
+        <!--<div *ngIf="diagnosis.invalid && (diagnosis.dirty || diagnosis.touched)"
+             class="alert alert-danger">
+          <div *ngIf="diagnosis.errors.required">
+            diagnosis is required.
+          </div>
+        </div>-->
 
       </div>
 
       <div class="form-group col-md-6">
         <label for="medicine">Medicine</label>
-        <textarea class="form-control" formControlName="medicine"
-                  id="medicine"
-                  placeholder="enter medicine">
+        <textarea class="form-control" formControlName="medicine" id="medicine" placeholder="enter medicine">
+
       </textarea>
+        <!--<div *ngIf="medicine.invalid && (medicine.dirty || medicine.touched)"
+             class="alert alert-danger">
+          <div *ngIf="medicine.errors.required">
+            medicine is required.
+          </div>
+        </div>-->
 
       </div>
     </div>
@@ -60,9 +90,16 @@
     <div class="row">
       <div class="form-group col-md-6">
         <label for="nextVisitDate">Next visit Date</label>
-        <input type="text" class="form-control" formControlName="nextVisitDate" data-toggle="tooltip"
-               data-placement="right"
+        <input type="date" class="form-control" name="nextVisitDate" formControlName="nextVisitDate"
+               data-toggle="tooltip"
+               data-placement="right" id="nextVisitDate"
                title="Enter Next visit Date">
+        <!--<div *ngIf="nextVisitDate.invalid && (nextVisitDate.dirty || nextVisitDate.touched)"
+             class="alert alert-danger">
+          <div *ngIf="nextVisitDate.errors.required">
+            Geder is required.
+          </div>
+        </div>-->
 
       </div>
     </div>

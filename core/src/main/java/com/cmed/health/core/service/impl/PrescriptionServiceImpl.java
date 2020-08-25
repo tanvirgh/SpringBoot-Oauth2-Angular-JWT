@@ -88,7 +88,9 @@ public class PrescriptionServiceImpl<S extends PrescriptionDto> implements Presc
 
     @Override
     public Optional<S> update(Long id, S dto) {
-        Prescription prescription = prescriptionRepository.getOne(id);
+
+        Optional<Prescription> prescriptionOptional = prescriptionRepository.findById(id);
+        Prescription prescription = prescriptionOptional.get();
         prescription.setPatientName(dto.getPatientName());
         prescription.setAge(dto.getAge());
         prescription.setPrescriptionDate(dto.getPrescriptionDate());
@@ -96,6 +98,7 @@ public class PrescriptionServiceImpl<S extends PrescriptionDto> implements Presc
         prescription.setGender(Gender.findByName(dto.getGender()));
         prescription.setMedicine(dto.getMedicine());
         prescription.setNextVisitDate(dto.getNextVisitDate());
-        return Optional.of((S) mapper.map(prescription, PrescriptionDto.class));
+        Prescription newPrescription = prescriptionRepository.save(prescription);
+        return Optional.of((S) mapper.map(newPrescription, PrescriptionDto.class));
     }
 }

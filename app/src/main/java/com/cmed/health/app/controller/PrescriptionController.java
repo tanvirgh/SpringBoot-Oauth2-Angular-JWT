@@ -61,7 +61,7 @@ public class PrescriptionController {
 
     @DeleteMapping(ApiProvider.PrescriptionApi.PRESCRIPTIONID)
     @ResponseStatus(code = HttpStatus.OK)
-    public void deleteCategory(@PathVariable(name = ApiConstants.PRESCRIPTION_ID) long id) {
+    public void deletePrescription(@PathVariable(name = ApiConstants.PRESCRIPTION_ID) long id) {
         prescriptionService.remove(id);
     }
 
